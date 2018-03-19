@@ -17,32 +17,26 @@ export class ShrinkingSegmentHeaderComponent {
 
   newHeaderHeight: any;
 
-  constructor(public element: ElementRef, public renderer: Renderer) {
-
-  }
+  //Renderer 等於 html document 操做 原生元件
+  constructor(public element: ElementRef, public renderer: Renderer) {}
 
   ngAfterViewInit() {
 
     this.renderer.setElementStyle(this.element.nativeElement, 'height', this.headerHeight + 'px');
 
-    this.scrollArea.ionScroll.subscribe((ev) => {
-      this.resizeHeader(ev);
+    this.scrollArea.ionScroll.subscribe((event) => {
+      this.resizeHeader(event);
     });
-
   }
 
-  resizeHeader(ev) {
+  resizeHeader(event) {
 
-    ev.domWrite(() => {
+    event.domWrite(() => {
 
-      this.newHeaderHeight = this.headerHeight - ev.scrollTop;
-
-      if (this.newHeaderHeight < 0) {
-        this.newHeaderHeight = 0;
-      }
-
+      this.newHeaderHeight = this.headerHeight - event.scrollTop;
+      this.newHeaderHeight = Math.max(0, this.newHeaderHeight);
       this.renderer.setElementStyle(this.element.nativeElement, 'height', this.newHeaderHeight + 'px');
-
+      
     });
 
   }
