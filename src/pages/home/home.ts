@@ -16,5 +16,6 @@ export class HomePage {
       let secret = 'secret_secret_secret_secret_secret_secret_secret_secret_secret_secret_secret_';
       console.log(secret);
     }
+    
   }
 }
