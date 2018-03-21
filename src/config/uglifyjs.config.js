@@ -13,7 +13,7 @@ module.exports = {
     pure_getters: true,
     dead_code: true,
       global_defs: {
-        Release: true
+        ENV: { isRelease: true }
       }
   }
 };

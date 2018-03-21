@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-declare const Release;
-window['Release'] = false;
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
