@@ -27,6 +27,16 @@ export class ShrinkingSegmentHeaderComponent {
     this.scrollArea.ionScroll.subscribe((event) => {
       this.resizeHeader(event);
     });
+
+    this.scrollArea.ionScrollStart.subscribe((event) => {
+      console.log('start');
+console.log(event);
+    });
+
+    this.scrollArea.ionScrollEnd.subscribe((event) => {
+      console.log('end');
+      console.log(event);
+    });
   }
 
   resizeHeader(event) {
